@@ -1,13 +1,8 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
-
-const navItems = [
-  { name: 'Journey', href: '#journey' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Ingredients', href: '#ingredients' },
-  { name: 'Shop', href: '#shop' },
-];
+import { Menu, X, ShoppingCart } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import logo from '@/assets/logo.svg';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,39 +17,39 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto">
         <div className="backdrop-blur-lg bg-background/70 rounded-2xl border border-border/50 px-6 py-3 shadow-soft">
           <div className="flex items-center justify-between">
-            {/* Logo */}
-            <motion.a
-              href="#"
-              className="font-serif text-2xl font-semibold tracking-wide text-foreground"
-              whileHover={{ scale: 1.02 }}
-            >
-              <span className="text-primary">BON</span> VOYAGE
-            </motion.a>
-
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-8">
-              {navItems.map((item, index) => (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 * index + 0.3 }}
-                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-300 relative group"
-                >
-                  {item.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-                </motion.a>
-              ))}
+            {/* Left - Cart & Shop Now */}
+            <div className="flex items-center gap-4">
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="p-2 text-foreground hover:text-primary transition-colors"
+              >
+                <ShoppingCart size={22} />
+              </motion.button>
+              <Button variant="hero" size="sm" className="hidden sm:flex">
+                Shop Now
+              </Button>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Center - Logo */}
+            <motion.a
+              href="#"
+              className="absolute left-1/2 -translate-x-1/2"
+              whileHover={{ scale: 1.02 }}
+            >
+              <img src={logo} alt="Bon Voyage" className="h-8 md:h-10 w-auto" />
+            </motion.a>
+
+            {/* Right - Mobile Menu Button */}
             <button
               className="md:hidden text-foreground"
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
+
+            {/* Right - Empty space for balance on desktop */}
+            <div className="hidden md:block w-[140px]" />
           </div>
 
           {/* Mobile Navigation */}
@@ -65,16 +60,13 @@ export default function Navigation() {
               exit={{ opacity: 0, height: 0 }}
               className="md:hidden mt-4 pt-4 border-t border-border/50"
             >
-              {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block py-3 text-muted-foreground hover:text-primary transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.name}
-                </a>
-              ))}
+              <a
+                href="#shop"
+                className="block py-3 text-muted-foreground hover:text-primary transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Shop Now
+              </a>
             </motion.div>
           )}
         </div>
