@@ -1,47 +1,40 @@
-import { Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import ProductScene from './ProductScene';
-import { ArrowDown, Sparkles } from 'lucide-react';
+import chocolateBar from '@/assets/chocolate-bar-hero.png';
+import { Instagram, Facebook, Twitter, Youtube } from 'lucide-react';
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen gradient-hero overflow-hidden">
-      {/* Decorative Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-64 h-64 rounded-full bg-primary/10 blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 rounded-full bg-accent/10 blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-blush/20 blur-3xl" />
+    <section className="relative min-h-screen bg-background overflow-hidden">
+      {/* Background decorative text */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+        <span className="text-[20vw] font-serif font-bold text-primary/5 whitespace-nowrap select-none">
+          BON VOYAGE
+        </span>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 pt-32 pb-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-200px)]">
-          {/* Text Content */}
+      {/* Subtle gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blush/30 via-transparent to-accent/10 pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto px-6 pt-28 pb-16">
+        <div className="grid lg:grid-cols-12 gap-8 items-center min-h-[calc(100vh-160px)]">
+          
+          {/* Left Content */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-center lg:text-left order-2 lg:order-1"
+            className="lg:col-span-4 text-center lg:text-left z-10"
           >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/80 text-secondary-foreground text-sm font-medium mb-6"
-            >
-              <Sparkles size={16} className="text-primary" />
-              Ceremonial Grade Chocolate
-            </motion.div>
-
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="font-serif text-5xl md:text-6xl lg:text-7xl font-medium leading-tight text-foreground mb-6"
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] text-foreground mb-6 uppercase tracking-tight"
             >
               Take a bite
               <br />
-              <span className="text-gradient italic">and enjoy</span>
+              <span className="text-gradient">and enjoy</span>
               <br />
               the journey.
             </motion.h1>
@@ -49,8 +42,8 @@ export default function HeroSection() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
-              className="text-lg md:text-xl text-muted-foreground max-w-md mx-auto lg:mx-0 mb-8"
+              transition={{ delay: 0.6 }}
+              className="text-base md:text-lg text-muted-foreground max-w-sm mx-auto lg:mx-0 mb-8 leading-relaxed"
             >
               Adaptogenic, ceremonial chocolate bars crafted with nature's finest ingredients for a transcendent experience.
             </motion.p>
@@ -58,77 +51,105 @@ export default function HeroSection() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.9 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              transition={{ delay: 0.8 }}
             >
-              <Button variant="hero" size="xl">
+              <Button variant="hero" size="xl" className="uppercase tracking-wider">
                 Begin Your Journey
-              </Button>
-              <Button variant="outline" size="xl">
-                Explore Flavors
               </Button>
             </motion.div>
 
-            {/* Stats */}
+            {/* Social Icons */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.2 }}
-              className="grid grid-cols-3 gap-8 mt-12 pt-8 border-t border-border/50"
+              className="flex gap-4 mt-12 justify-center lg:justify-start"
             >
-              {[
-                { value: '5g', label: 'Active Compounds' },
-                { value: '72%', label: 'Dark Chocolate' },
-                { value: '100%', label: 'Natural' },
-              ].map((stat, index) => (
-                <div key={index} className="text-center lg:text-left">
-                  <div className="font-serif text-2xl md:text-3xl font-semibold text-primary">
-                    {stat.value}
-                  </div>
-                  <div className="text-xs md:text-sm text-muted-foreground mt-1">
-                    {stat.label}
-                  </div>
-                </div>
+              {[Facebook, Twitter, Instagram, Youtube].map((Icon, index) => (
+                <a
+                  key={index}
+                  href="#"
+                  className="w-10 h-10 rounded-full border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors duration-300"
+                >
+                  <Icon size={18} />
+                </a>
               ))}
             </motion.div>
           </motion.div>
 
-          {/* 3D Product */}
+          {/* Center Product Image */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="relative h-[400px] md:h-[500px] lg:h-[600px] order-1 lg:order-2"
+            initial={{ opacity: 0, scale: 0.8, y: 50 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+            className="lg:col-span-4 flex items-center justify-center z-10"
           >
-            <div className="absolute inset-0 animate-pulse-glow rounded-full" />
-            <Suspense fallback={
-              <div className="w-full h-full flex items-center justify-center">
-                <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin" />
-              </div>
-            }>
-              <ProductScene />
-            </Suspense>
+            <motion.div
+              animate={{ 
+                y: [0, -15, 0],
+              }}
+              transition={{ 
+                duration: 4, 
+                repeat: Infinity, 
+                ease: "easeInOut" 
+              }}
+              className="relative"
+            >
+              {/* Glow effect behind product */}
+              <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full scale-75" />
+              
+              <img
+                src={chocolateBar}
+                alt="Bon Voyage Ceremonial Chocolate Bar"
+                className="relative w-full max-w-[320px] md:max-w-[400px] lg:max-w-[450px] h-auto drop-shadow-2xl"
+              />
+            </motion.div>
+          </motion.div>
+
+          {/* Right Stats */}
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="lg:col-span-4 z-10"
+          >
+            {/* Navigation arrows */}
+            <div className="hidden lg:flex gap-3 justify-end mb-12">
+              <button className="w-12 h-12 rounded-full border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors duration-300">
+                <span className="text-xl">←</span>
+              </button>
+              <button className="w-12 h-12 rounded-full border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors duration-300">
+                <span className="text-xl">→</span>
+              </button>
+            </div>
+
+            {/* Stats */}
+            <div className="space-y-8 text-center lg:text-right">
+              {[
+                { value: '100', suffix: '%', label: 'Natural Ingredients' },
+                { value: '0', suffix: '%', label: 'Artificial Additives' },
+                { value: '5', suffix: 'g', label: 'Active Compounds' },
+              ].map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6 + index * 0.2 }}
+                  className="group"
+                >
+                  <div className="font-serif text-4xl md:text-5xl font-bold text-primary italic">
+                    {stat.value}
+                    <span className="text-2xl md:text-3xl">{stat.suffix}</span>
+                  </div>
+                  <div className="text-sm md:text-base text-foreground font-medium uppercase tracking-wider mt-1">
+                    {stat.label}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.a
-          href="#journey"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-          className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-        >
-          <span className="text-sm font-medium">Discover More</span>
-          <ArrowDown size={20} />
-        </motion.a>
-      </motion.div>
     </section>
   );
 }
