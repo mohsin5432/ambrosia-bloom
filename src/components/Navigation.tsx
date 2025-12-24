@@ -15,21 +15,10 @@ export default function Navigation() {
       className="fixed top-0 left-0 right-0 z-50 px-6 py-4"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="backdrop-blur-lg bg-background/70 rounded-2xl border border-border/50 px-6 py-3 shadow-soft">
+        <div className="backdrop-blur-lg bg-chocolate/90 rounded-2xl border border-primary/30 px-6 py-3 shadow-elevated">
           <div className="flex items-center justify-between">
-            {/* Left - Cart & Shop Now */}
-            <div className="flex items-center gap-4">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                className="p-2 text-foreground hover:text-primary transition-colors"
-              >
-                <ShoppingCart size={22} />
-              </motion.button>
-              <Button variant="hero" size="sm" className="hidden sm:flex">
-                Shop Now
-              </Button>
-            </div>
+            {/* Left - Empty space for balance */}
+            <div className="hidden md:block w-[140px]" />
 
             {/* Center - Logo */}
             <motion.a
@@ -40,16 +29,27 @@ export default function Navigation() {
               <img src={logo} alt="Bon Voyage" className="h-8 md:h-10 w-auto" />
             </motion.a>
 
-            {/* Right - Mobile Menu Button */}
+            {/* Mobile Menu Button */}
             <button
-              className="md:hidden text-foreground"
+              className="md:hidden text-primary-foreground"
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
 
-            {/* Right - Empty space for balance on desktop */}
-            <div className="hidden md:block w-[140px]" />
+            {/* Right - Cart & Shop Now */}
+            <div className="hidden md:flex items-center gap-4">
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="p-2 text-primary-foreground hover:text-primary transition-colors"
+              >
+                <ShoppingCart size={22} />
+              </motion.button>
+              <Button variant="hero" size="sm">
+                Shop Now
+              </Button>
+            </div>
           </div>
 
           {/* Mobile Navigation */}
