@@ -62,7 +62,31 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+### Deploy to GitHub Pages
+
+This project is configured for automatic deployment to GitHub Pages. Follow these steps:
+
+1. **Enable GitHub Pages** in your repository:
+   - Go to your repository on GitHub
+   - Navigate to **Settings** > **Pages**
+   - Under **Source**, select **GitHub Actions**
+
+2. **Push to main branch**:
+   - The deployment workflow will automatically trigger when you push to the `main` branch
+   - GitHub Actions will build and deploy your site
+
+3. **Access your site**:
+   - Once deployed, your site will be available at: `https://mohsin5432.github.io/ambrosia-bloom/`
+   - The deployment typically takes 1-2 minutes
+
+4. **Manual deployment** (optional):
+   - Go to the **Actions** tab in your repository
+   - Select the "Deploy to GitHub Pages" workflow
+   - Click "Run workflow" to trigger a manual deployment
+
+### Deploy to Lovable
+
+Alternatively, you can open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
 
 ## Can I connect a custom domain to my Lovable project?
 
