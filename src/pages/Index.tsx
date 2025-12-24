@@ -11,10 +11,10 @@ const Index = () => {
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Navigation />
       <HeroSection />
+      <ShopSection />
       <JourneySection />
       <ExperienceSection />
       <IngredientsSection />
-      <ShopSection />
       <Footer />
     </div>
   );
