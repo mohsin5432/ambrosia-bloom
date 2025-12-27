@@ -2,10 +2,12 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Menu, X, ShoppingCart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '@/assets/logo.svg';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   return (
     <motion.nav
@@ -21,13 +23,14 @@ export default function Navigation() {
             <div className="hidden md:block w-[140px]" />
 
             {/* Center - Logo */}
-            <motion.a
-              href="#"
+            <motion.div
               className="absolute left-1/2 -translate-x-1/2"
               whileHover={{ scale: 1.02 }}
             >
-              <img src={logo} alt="Bon Voyage" className="h-8 md:h-10 w-auto" />
-            </motion.a>
+              <Link to="/">
+                <img src={logo} alt="Bon Voyage" className="h-8 md:h-10 w-auto" />
+              </Link>
+            </motion.div>
 
             {/* Mobile Menu Button */}
             <button
@@ -46,8 +49,8 @@ export default function Navigation() {
               >
                 <ShoppingCart size={22} />
               </motion.button>
-              <Button variant="hero" size="sm">
-                Shop Now
+              <Button variant="hero" size="sm" asChild>
+                <Link to="/products">Shop Now</Link>
               </Button>
             </div>
           </div>
@@ -60,13 +63,13 @@ export default function Navigation() {
               exit={{ opacity: 0, height: 0 }}
               className="md:hidden mt-4 pt-4 border-t border-border/50"
             >
-              <a
-                href="#shop"
-                className="block py-3 text-muted-foreground hover:text-primary transition-colors"
+              <Link
+                to="/products"
+                className="block py-3 text-primary-foreground hover:text-primary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 Shop Now
-              </a>
+              </Link>
             </motion.div>
           )}
         </div>
