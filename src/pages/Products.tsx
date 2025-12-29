@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ShoppingBag, Star, Filter } from 'lucide-react';
 import Navigation from '@/components/Navigation';
@@ -6,7 +7,7 @@ import Footer from '@/components/Footer';
 
 const products = [
   {
-    id: 1,
+    id: 'midnight-velvet',
     name: 'Dark Chocolate Raspberry',
     subtitle: 'Ceremonial Mushroom Bar • 5g Actives',
     description: 'Rich 72% dark chocolate with tangy raspberry and adaptogenic mushrooms.',
@@ -18,7 +19,7 @@ const products = [
     badge: 'Bestseller'
   },
   {
-    id: 2,
+    id: 'golden-sunrise',
     name: 'Milk Chocolate Hazelnut',
     subtitle: 'Ceremonial Mushroom Bar • 3g Actives',
     description: 'Creamy milk chocolate with roasted hazelnuts and gentle mushroom blend.',
@@ -30,7 +31,7 @@ const products = [
     badge: 'New'
   },
   {
-    id: 3,
+    id: 'forest-whisper',
     name: 'White Chocolate Passion',
     subtitle: 'Ceremonial Mushroom Bar • 3g Actives',
     description: 'Silky white chocolate with tropical passion fruit and calming adaptogens.',
@@ -42,7 +43,7 @@ const products = [
     badge: null
   },
   {
-    id: 4,
+    id: 'ruby-dreams',
     name: 'Extra Dark Sea Salt',
     subtitle: 'Ceremonial Mushroom Bar • 7g Actives',
     description: '85% dark chocolate with Himalayan sea salt and potent mushroom blend.',
@@ -54,7 +55,7 @@ const products = [
     badge: 'Popular'
   },
   {
-    id: 5,
+    id: 'spice-voyage',
     name: 'Mint Dark Chocolate',
     subtitle: 'Ceremonial Mushroom Bar • 5g Actives',
     description: 'Refreshing mint paired with smooth dark chocolate and balanced adaptogens.',
@@ -66,7 +67,7 @@ const products = [
     badge: null
   },
   {
-    id: 6,
+    id: 'ocean-mist',
     name: 'Caramel Swirl',
     subtitle: 'Ceremonial Mushroom Bar • 4g Actives',
     description: 'Buttery caramel ribbons through rich milk chocolate with gentle mushrooms.',
@@ -152,8 +153,9 @@ export default function Products() {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 * index }}
-              className="group"
+              className="group cursor-pointer"
             >
+              <Link to={`/products/${product.id}`}>
               <div className="gradient-card rounded-3xl overflow-hidden border border-border/50 shadow-elevated hover:shadow-glow transition-all duration-500">
                 {/* Image */}
                 <div className="relative bg-gradient-to-br from-secondary to-blush p-8 flex items-center justify-center aspect-square">
@@ -217,6 +219,7 @@ export default function Products() {
                   </div>
                 </div>
               </div>
+              </Link>
             </motion.div>
           ))}
         </div>
