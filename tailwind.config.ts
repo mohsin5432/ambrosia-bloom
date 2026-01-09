@@ -68,9 +68,9 @@ export default {
         },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        lg: "6px",
+        md: "4px",
+        sm: "2px",
       },
       keyframes: {
         "accordion-down": {
@@ -102,8 +102,8 @@ export default {
           "100%": { backgroundPosition: "200% 0" },
         },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 40px hsl(350 60% 80% / 0.3)" },
-          "50%": { boxShadow: "0 0 80px hsl(350 60% 80% / 0.5)" },
+          "0%, 100%": { boxShadow: "0 0 40px hsl(42 65% 55% / 0.2)" },
+          "50%": { boxShadow: "0 0 80px hsl(42 65% 55% / 0.35)" },
         },
       },
       animation: {

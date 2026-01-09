@@ -121,7 +121,7 @@ export default function Products() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-secondary/30 border border-border/50"
+          className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-md bg-secondary/30 border border-border/50"
         >
           <div className="flex items-center gap-2">
             <Filter size={18} className="text-muted-foreground" />
@@ -131,7 +131,7 @@ export default function Products() {
             {['All', 'Vegan', 'Organic', 'Potent', 'Bestsellers'].map((filter) => (
               <button
                 key={filter}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                className={`px-4 py-2 rounded-sm text-sm font-medium transition-all ${
                   filter === 'All'
                     ? 'bg-primary text-primary-foreground'
                     : 'bg-background/50 text-muted-foreground hover:bg-primary/10 hover:text-primary'
@@ -156,9 +156,9 @@ export default function Products() {
               className="group cursor-pointer"
             >
               <Link to={`/products/${product.id}`}>
-              <div className="gradient-card rounded-3xl overflow-hidden border border-border/50 shadow-elevated hover:shadow-glow transition-all duration-500">
+              <div className="gradient-card rounded-md overflow-hidden border border-border/50 shadow-elevated hover:shadow-glow transition-all duration-500">
                 {/* Image */}
-                <div className="relative bg-gradient-to-br from-secondary to-blush p-8 flex items-center justify-center aspect-square">
+                <div className="relative bg-gradient-to-br from-secondary to-champagne p-8 flex items-center justify-center aspect-square">
                   <motion.img
                     src={product.image}
                     alt={product.name}
@@ -166,7 +166,7 @@ export default function Products() {
                     whileHover={{ rotate: 2 }}
                   />
                   {product.badge && (
-                    <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-medium">
+                    <div className="absolute top-4 left-4 px-3 py-1 rounded-sm bg-primary text-primary-foreground text-xs font-medium">
                       {product.badge}
                     </div>
                   )}
@@ -179,7 +179,7 @@ export default function Products() {
                       <Star
                         key={i}
                         size={14}
-                        className={`${i < product.rating ? 'fill-primary text-primary' : 'fill-muted text-muted'}`}
+                        className={`${i < product.rating ? 'fill-accent text-accent' : 'fill-muted text-muted'}`}
                       />
                     ))}
                     <span className="text-xs text-muted-foreground ml-2">({product.reviews})</span>
@@ -200,7 +200,7 @@ export default function Products() {
                     {product.tags.slice(0, 3).map((tag) => (
                       <span
                         key={tag}
-                        className="px-2 py-0.5 rounded-full bg-secondary text-secondary-foreground text-xs font-medium"
+                        className="px-2 py-0.5 rounded-sm bg-secondary text-secondary-foreground text-xs font-medium"
                       >
                         {tag}
                       </span>
@@ -245,7 +245,7 @@ export default function Products() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 * index }}
-              className="text-center p-6 rounded-xl bg-secondary/30 border border-border/50"
+              className="text-center p-6 rounded-md bg-secondary/30 border border-border/50"
             >
               <div className="text-foreground font-semibold">{item.value}</div>
               <div className="text-muted-foreground text-sm">{item.label}</div>

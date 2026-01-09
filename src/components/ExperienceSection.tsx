@@ -38,7 +38,7 @@ export default function ExperienceSection() {
           scale: imageScale,
           rotate: imageRotate
         }} className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-3xl" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-md blur-3xl" />
             <motion.div initial={{
             opacity: 0,
             y: 50
@@ -49,7 +49,7 @@ export default function ExperienceSection() {
             once: true
           }} transition={{
             duration: 0.8
-          }} className="relative rounded-3xl overflow-hidden shadow-elevated">
+          }} className="relative rounded-md overflow-hidden shadow-elevated">
               <img alt="Bon Voyage Ceremonial Chocolate Bar" className="w-full h-auto object-cover" src="/lovable-uploads/d3adddc0-2d54-49ca-9b49-ecb8472b54dd.png" />
               <div className="absolute inset-0 bg-gradient-to-t from-chocolate/40 to-transparent" />
             </motion.div>
@@ -66,7 +66,7 @@ export default function ExperienceSection() {
           }} transition={{
             delay: 0.5,
             type: 'spring'
-          }} className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground px-6 py-4 rounded-2xl shadow-elevated">
+          }} className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground px-6 py-4 rounded-md shadow-elevated">
               <div className="text-center">
                 <div className="font-serif text-2xl font-bold">72%</div>
                 <div className="text-xs opacity-80">Dark Chocolate</div>
@@ -110,7 +110,7 @@ export default function ExperienceSection() {
             }} transition={{
               delay: index * 0.15
             }} className="flex gap-4 group">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-secondary flex items-center justify-center border-2 border-transparent group-hover:border-primary transition-colors duration-300">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-sm bg-secondary flex items-center justify-center border-2 border-transparent group-hover:border-primary transition-colors duration-300">
                     <span className="font-serif text-primary font-semibold">
                       {String(index + 1).padStart(2, '0')}
                     </span>

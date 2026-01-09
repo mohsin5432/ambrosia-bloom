@@ -84,7 +84,7 @@ export default function IngredientsSection() {
               whileHover={{ scale: 1.02 }}
               className="group relative"
             >
-              <div className="gradient-card rounded-2xl p-8 border border-border/50 shadow-soft hover:shadow-elevated transition-all duration-500 h-full">
+              <div className="gradient-card rounded-md p-8 border border-border/50 shadow-soft hover:shadow-elevated transition-all duration-500 h-full">
                 <div className="flex items-start justify-between mb-4">
                   <div>
                     <h3 className="font-serif text-2xl font-semibold text-foreground group-hover:text-primary transition-colors">
@@ -94,7 +94,7 @@ export default function IngredientsSection() {
                       Origin: {ingredient.origin}
                     </p>
                   </div>
-                  <div className="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">
+                  <div className="px-3 py-1 rounded-sm bg-secondary text-secondary-foreground text-xs font-medium">
                     {ingredient.benefit.split(',')[0]}
                   </div>
                 </div>
@@ -103,10 +103,10 @@ export default function IngredientsSection() {
                 </p>
 
                 {/* Decorative Corner */}
-                <div className="absolute top-0 right-0 w-20 h-20 overflow-hidden rounded-tr-2xl">
-                  <div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-primary/30 group-hover:bg-primary transition-colors" />
-                  <div className="absolute top-4 right-8 w-1 h-1 rounded-full bg-accent/30" />
-                  <div className="absolute top-8 right-4 w-1 h-1 rounded-full bg-accent/30" />
+                <div className="absolute top-0 right-0 w-20 h-20 overflow-hidden rounded-tr-md">
+                  <div className="absolute top-4 right-4 w-2 h-2 rounded-sm bg-primary/30 group-hover:bg-primary transition-colors" />
+                  <div className="absolute top-4 right-8 w-1 h-1 rounded-sm bg-accent/30" />
+                  <div className="absolute top-8 right-4 w-1 h-1 rounded-sm bg-accent/30" />
                 </div>
               </div>
             </motion.div>
@@ -120,8 +120,8 @@ export default function IngredientsSection() {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <div className="inline-flex items-center gap-4 px-8 py-4 rounded-full bg-chocolate text-cream shadow-elevated">
-            <div className="w-10 h-10 rounded-full bg-cream/10 flex items-center justify-center">
+          <div className="inline-flex items-center gap-4 px-8 py-4 rounded-md bg-chocolate text-cream shadow-elevated">
+            <div className="w-10 h-10 rounded-sm bg-cream/10 flex items-center justify-center">
               <span className="text-champagne">✦</span>
             </div>
             <div className="text-left">

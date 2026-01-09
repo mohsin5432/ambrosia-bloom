@@ -97,16 +97,16 @@ export default function JourneySection() {
               whileHover={{ y: -10, transition: { duration: 0.3 } }}
               className="group relative"
             >
-              <div className="gradient-card rounded-2xl p-8 h-full border border-border/50 shadow-soft hover:shadow-elevated transition-all duration-500">
+              <div className="gradient-card rounded-md p-8 h-full border border-border/50 shadow-soft hover:shadow-elevated transition-all duration-500">
                 {/* Step Number */}
-                <div className="absolute -top-4 -right-4 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                <div className="absolute -top-4 -right-4 w-10 h-10 rounded-sm bg-primary/10 flex items-center justify-center">
                   <span className="font-serif text-primary font-semibold">
                     {String(index + 1).padStart(2, '0')}
                   </span>
                 </div>
 
                 {/* Icon */}
-                <div className={`w-14 h-14 rounded-xl bg-secondary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 ${step.color}`}>
+                <div className={`w-14 h-14 rounded-md bg-secondary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 ${step.color}`}>
                   <step.icon size={28} />
                 </div>
 
@@ -119,7 +119,7 @@ export default function JourneySection() {
                 </p>
 
                 {/* Hover Line */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent rounded-b-2xl scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent rounded-b-md scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
               </div>
             </motion.div>
           ))}
