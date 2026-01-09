@@ -17,7 +17,7 @@ export default function Navigation() {
       className="fixed top-0 left-0 right-0 z-50 px-6 py-4"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="backdrop-blur-lg bg-chocolate/90 rounded-2xl border border-primary/30 px-6 py-3 shadow-elevated">
+        <div className="backdrop-blur-lg bg-chocolate/90 rounded-md border border-primary/30 px-6 py-3 shadow-elevated">
           <div className="flex items-center justify-between">
             {/* Left - Empty space for balance */}
             <div className="hidden md:block w-[140px]" />

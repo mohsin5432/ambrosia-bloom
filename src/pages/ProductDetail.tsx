@@ -198,7 +198,7 @@ const ProductDetail = () => {
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              <div className="aspect-square rounded-3xl bg-gradient-to-br from-chocolate/20 via-background to-champagne/10 p-8 lg:p-12 flex items-center justify-center overflow-hidden group">
+              <div className="aspect-square rounded-md bg-gradient-to-br from-chocolate/20 via-background to-champagne/10 p-8 lg:p-12 flex items-center justify-center overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <motion.img
                   src={product.image}
@@ -248,7 +248,7 @@ const ProductDetail = () => {
                       {[...Array(5)].map((_, i) => (
                         <Star
                           key={i}
-                          className={`w-5 h-5 ${i < Math.floor(product.rating) ? 'text-champagne fill-champagne' : 'text-muted'}`}
+                          className={`w-5 h-5 ${i < Math.floor(product.rating) ? 'text-accent fill-accent' : 'text-muted'}`}
                         />
                       ))}
                       <span className="ml-2 text-foreground font-medium">{product.rating}</span>
@@ -268,7 +268,7 @@ const ProductDetail = () => {
                 {/* Details Grid */}
                 <div className="grid grid-cols-2 gap-4 py-6 border-y border-border">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-sm bg-primary/10 flex items-center justify-center">
                       <Leaf className="w-5 h-5 text-primary" />
                     </div>
                     <div>
@@ -277,7 +277,7 @@ const ProductDetail = () => {
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-sm bg-primary/10 flex items-center justify-center">
                       <Award className="w-5 h-5 text-primary" />
                     </div>
                     <div>
@@ -297,17 +297,17 @@ const ProductDetail = () => {
                   {/* Quantity Selector */}
                   <div className="flex items-center gap-6">
                     <span className="text-muted-foreground">Quantity</span>
-                    <div className="flex items-center gap-4 bg-secondary/50 rounded-full px-4 py-2">
+                    <div className="flex items-center gap-4 bg-secondary/50 rounded-md px-4 py-2">
                       <button
                         onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                        className="w-8 h-8 rounded-full bg-background flex items-center justify-center hover:bg-primary/10 transition-colors"
+                        className="w-8 h-8 rounded-sm bg-background flex items-center justify-center hover:bg-primary/10 transition-colors"
                       >
                         <Minus className="w-4 h-4" />
                       </button>
                       <span className="w-8 text-center font-medium text-foreground">{quantity}</span>
                       <button
                         onClick={() => setQuantity(quantity + 1)}
-                        className="w-8 h-8 rounded-full bg-background flex items-center justify-center hover:bg-primary/10 transition-colors"
+                        className="w-8 h-8 rounded-sm bg-background flex items-center justify-center hover:bg-primary/10 transition-colors"
                       >
                         <Plus className="w-4 h-4" />
                       </button>
@@ -367,7 +367,7 @@ const ProductDetail = () => {
                 {product.ingredients.map((ingredient) => (
                   <span
                     key={ingredient}
-                    className="px-4 py-2 rounded-full bg-background border border-border text-foreground text-sm"
+                    className="px-4 py-2 rounded-sm bg-background border border-border text-foreground text-sm"
                   >
                     {ingredient}
                   </span>
@@ -384,7 +384,7 @@ const ProductDetail = () => {
               className="space-y-6"
             >
               <h2 className="text-2xl font-display text-foreground">Nutrition Facts</h2>
-              <div className="bg-background rounded-2xl p-6 border border-border">
+              <div className="bg-background rounded-md p-6 border border-border">
                 <p className="text-sm text-muted-foreground mb-4">Serving Size: {product.nutritionFacts.servingSize}</p>
                 <div className="grid grid-cols-3 gap-4">
                   {[
@@ -394,7 +394,7 @@ const ProductDetail = () => {
                     { label: "Protein", value: product.nutritionFacts.protein },
                     { label: "Sugar", value: product.nutritionFacts.sugar },
                   ].map((item) => (
-                    <div key={item.label} className="text-center p-3 rounded-xl bg-secondary/50">
+                    <div key={item.label} className="text-center p-3 rounded-md bg-secondary/50">
                       <p className="text-xs text-muted-foreground uppercase">{item.label}</p>
                       <p className="text-lg font-medium text-foreground">{item.value}</p>
                     </div>
