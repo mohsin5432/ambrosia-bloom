@@ -1,129 +1,92 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import chocolateBar from '@/assets/chocolate-bar-hero.png';
+import { Heart, Leaf, Globe, Sparkles } from 'lucide-react';
+
+const marqueeItems = [
+  { icon: Leaf, text: '100% Vegan' },
+  { icon: Globe, text: 'Eco-friendly Packaging' },
+  { icon: Heart, text: 'Heart-opening Adaptogen Blend' },
+  { icon: Sparkles, text: 'Crafted with Organic Ingredients' },
+];
 
 export default function HeroSection() {
-  const circularText = "• CEREMONIAL CHOCOLATE • NATURAL INGREDIENTS • ADAPTOGENIC BLEND ";
-  
   return (
-    <section className="relative min-h-screen bg-background overflow-hidden flex items-center">
-      {/* Background decorative text */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
-        <span className="text-[25vw] font-serif font-bold text-primary/[0.03] whitespace-nowrap select-none">
-          BON VOYAGE
-        </span>
+    <section className="relative h-screen w-full overflow-hidden">
+      {/* Video Background */}
+      <div className="absolute inset-0">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source
+            src="https://videos.pexels.com/video-files/5501692/5501692-uhd_2560_1440_30fps.mp4"
+            type="video/mp4"
+          />
+        </video>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 w-full">
-        <div className="grid lg:grid-cols-12 gap-6 items-center">
-          
-          {/* Left Content - Minimal */}
+      {/* Gradient Overlay - Bottom fade to primary color */}
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent" />
+      <div className="absolute inset-0 bg-black/20" />
+
+      {/* Content */}
+      <div className="relative z-10 h-full flex flex-col items-center justify-end pb-32 px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="text-center max-w-2xl"
+        >
+          {/* Main Heading - Script/Cursive Style */}
+          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl text-white leading-tight italic">
+            Take a bite and
+            <br />
+            <span className="block">enjoy the journey.</span>
+          </h1>
+
+          {/* Subtext */}
+          <p className="mt-6 text-white/90 text-lg md:text-xl font-light leading-relaxed">
+            Adaptogenic, ceremonial chocolate bars crafted with
+            <br className="hidden md:block" />
+            nature's finest ingredients.
+          </p>
+
+          {/* CTA Button - Outlined Style */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-3 text-center lg:text-left z-10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="mt-8"
           >
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] text-foreground uppercase tracking-tight"
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-white/60 text-white bg-transparent hover:bg-white/10 uppercase tracking-[0.2em] text-sm px-10 py-6 rounded-sm"
             >
-              Take a bite
-              <br />
-              <span className="text-gradient italic font-medium">& enjoy</span>
-              <br />
-              the journey
-            </motion.h1>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
-              className="mt-8"
-            >
-              <Button variant="hero" size="lg" className="uppercase tracking-widest text-sm">
-                Shop Now
-              </Button>
-            </motion.div>
+              Shop Now
+            </Button>
           </motion.div>
+        </motion.div>
+      </div>
 
-          {/* Center Product Image with Rotating Text */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-            className="lg:col-span-6 flex items-center justify-center z-10 py-8 lg:py-0"
-          >
-            <div className="relative">
-              {/* Rotating circular text */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 flex items-center justify-center"
-                style={{ width: '600px', height: '600px', left: '50%', top: '50%', marginLeft: '-300px', marginTop: '-300px' }}
-              >
-                <svg viewBox="0 0 300 300" className="w-full h-full">
-                  <defs>
-                    <path
-                      id="circlePath"
-                      d="M 150, 150 m -120, 0 a 120,120 0 1,1 240,0 a 120,120 0 1,1 -240,0"
-                    />
-                  </defs>
-                  <text className="fill-primary/40 text-[11px] uppercase tracking-[0.3em] font-medium">
-                    <textPath href="#circlePath">
-                      {circularText}{circularText}
-                    </textPath>
-                  </text>
-                </svg>
-              </motion.div>
-
-              {/* Glow effect */}
-              <div className="absolute inset-0 bg-gradient-radial from-primary/20 via-transparent to-transparent blur-3xl scale-110" />
-              
-              {/* Product image with float animation */}
-              <motion.img
-                src={chocolateBar}
-                alt="Bon Voyage Ceremonial Chocolate Bar"
-                animate={{ y: [0, -12, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="relative w-[280px] md:w-[380px] lg:w-[480px] h-auto drop-shadow-2xl"
-              />
+      {/* Scrolling Marquee */}
+      <div className="absolute bottom-0 left-0 right-0 bg-primary/80 backdrop-blur-sm py-4 overflow-hidden">
+        <motion.div
+          animate={{ x: [0, -1920] }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          className="flex items-center gap-16 whitespace-nowrap"
+        >
+          {/* Double the items for seamless loop */}
+          {[...marqueeItems, ...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, index) => (
+            <div key={index} className="flex items-center gap-3 text-white">
+              <item.icon className="w-6 h-6" strokeWidth={1.5} />
+              <span className="text-sm md:text-base font-light tracking-wide">{item.text}</span>
             </div>
-          </motion.div>
-
-          {/* Right Stats - Minimal */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="lg:col-span-3 z-10"
-          >
-            <div className="space-y-10 text-center lg:text-right">
-              {[
-                { value: '100', suffix: '%', label: 'Natural' },
-                { value: '72', suffix: '%', label: 'Dark Cacao' },
-                { value: '5', suffix: 'g', label: 'Actives' },
-              ].map((stat, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 + index * 0.15 }}
-                >
-                  <div className="font-serif text-4xl md:text-5xl font-bold text-primary">
-                    {stat.value}
-                    <span className="text-2xl">{stat.suffix}</span>
-                  </div>
-                  <div className="text-xs text-muted-foreground uppercase tracking-[0.2em] mt-1">
-                    {stat.label}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
