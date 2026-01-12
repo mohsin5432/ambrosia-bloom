@@ -28,9 +28,14 @@ export default function HeroSection() {
         </video>
       </div>
 
-      {/* Gradient Overlay - Bottom fade to primary color */}
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent" />
-      <div className="absolute inset-0 bg-black/20" />
+      {/* Gradient Overlay - Dusty rose/pink gradient matching screenshot */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          background: 'linear-gradient(to top, rgba(180, 130, 130, 0.95) 0%, rgba(180, 130, 130, 0.6) 30%, rgba(180, 130, 130, 0.2) 50%, transparent 70%)'
+        }}
+      />
+      <div className="absolute inset-0 bg-black/10" />
 
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col items-center justify-end pb-32 px-6">
@@ -41,7 +46,10 @@ export default function HeroSection() {
           className="text-center max-w-2xl"
         >
           {/* Main Heading - Script/Cursive Style */}
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl text-white leading-tight italic">
+          <h1 
+            className="text-5xl md:text-6xl lg:text-7xl text-white leading-tight"
+            style={{ fontFamily: "'Playfair Display', Georgia, serif", fontStyle: 'italic', fontWeight: 400 }}
+          >
             Take a bite and
             <br />
             <span className="block">enjoy the journey.</span>
@@ -64,7 +72,7 @@ export default function HeroSection() {
             <Button
               variant="outline"
               size="lg"
-              className="border-white/60 text-white bg-transparent hover:bg-white/10 uppercase tracking-[0.2em] text-sm px-10 py-6 rounded-sm"
+              className="border-white/50 text-white bg-transparent hover:bg-white/10 uppercase tracking-[0.25em] text-xs px-10 py-6 rounded-sm font-medium"
             >
               Shop Now
             </Button>
@@ -72,8 +80,11 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Scrolling Marquee */}
-      <div className="absolute bottom-0 left-0 right-0 bg-primary/80 backdrop-blur-sm py-4 overflow-hidden">
+      {/* Scrolling Marquee - Dusty rose background */}
+      <div 
+        className="absolute bottom-0 left-0 right-0 py-4 overflow-hidden"
+        style={{ backgroundColor: 'rgba(180, 130, 130, 0.85)', backdropFilter: 'blur(8px)' }}
+      >
         <motion.div
           animate={{ x: [0, -1920] }}
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
